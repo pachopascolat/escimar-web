@@ -1,0 +1,69 @@
+
+.social-menu-div
+{
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    right: 10%;
+}
+
+.social  .fa {
+    font-size: 1.5em;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.carousel img{
+    max-height: 500px;
+}
+
+.logo-escimar{
+    height: 60px;
+}
+
+.container-blue{
+    background-color: #1855A1;
+    color: white;
+}
+
+.container-black a{
+    color: white;
+}
+.container-blue a{
+    color: white;
+}
+
+.container-black{
+    /*background: #414956;*/
+    background: #308496;
+}
+
+.container-green{
+    background-color: #1f9fa4
+}
+.side-menu li{
+    /*background: #414956;*/
+    background: #308496;
+    /*    background: linear-gradient(to bottom, 
+            #1f9fa4 0%,
+            #1f9fa4 100%
+            );*/
+}
+.side-menu li.active{
+    /*background: #3b424d;*/
+    background: #205865;
+}
+.side-menu li :hover{
+    /*background: #3b424d;*/
+    background: #205865;
+}
+.side-menu>ul>li>a{
+    /*border-bottom: solid 1px #3b424d;*/
+    border-bottom: solid 1px #205865;
+}
+.side-menu{
+    /*box-shadow: 0 10px 10px #333;*/
+}
+

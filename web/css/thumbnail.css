@@ -1,0 +1,21 @@
+.media{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.media-body{
+    padding-left:  1em;
+    padding-right:  1em;
+}
+
+.media-text{
+    font-size: small;
+}
+
+.media-object{
+    /*max-width: 150px;*/
+   width: 100%;
+}
+.by-author{
+    display: none;
+}
