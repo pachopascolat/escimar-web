@@ -1,7 +1,9 @@
-<div class="container">   
-    <hr>
-    <h1>Novedades</h1>
-    <hr>
+<div class="container">  
+    <div class="novedades-title">
+        <!--<hr class="hr-primary">-->
+        <h1 class="m-0">Novedades</h1>
+        <hr class="hr-primary mt-0">
+    </div>
     <!--<p>Use it to your news site, feature a article.</p>-->
 
     <div class="row">
@@ -71,4 +73,6 @@
             </ul>
         </div>
     </div>
+    <hr class="hr-primary mt-0">
+
 </div>

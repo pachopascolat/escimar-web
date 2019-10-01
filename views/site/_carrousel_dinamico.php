@@ -23,7 +23,7 @@
                         <p>
                             <?= $carousel->parrafo_carousel?>
                         </p>
-                        <a class="btn btn-lg btn-info">Entrar</a>
+                        <a class="btn btn-lg btn-info"><?= $carousel->boton_carousel?></a>
                     </div>
                 </div>
             </div>
