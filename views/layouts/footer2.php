@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">
 				<div class="col-xs-12 col-sm-4 col-md-4 d-flex align-items-center">
-                                    <img class="w-100" src="img/logo-balnco-transparente.png">
+                                    <img class="w-100" src="<?= \yii\helpers\Url::home(true)?>img/logo-balnco-transparente.png">
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>

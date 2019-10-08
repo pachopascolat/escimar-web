@@ -78,8 +78,12 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $carousels = \app\models\InicioCarousel::find()->all();
+        $noticias = \app\models\NoticiasPrincipales::find()->orderBy('ranking')->all();
         
-        return $this->render('index',['carousels'=>$carousels]);
+        return $this->render('index',[
+            'carousels'=>$carousels,
+            'noticias' => $noticias,
+                ]);
     }
 
     /**

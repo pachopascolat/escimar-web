@@ -17,11 +17,9 @@ NavBar::begin([
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Countrys', 'url' => ['/country/index']],
+        ['label' => 'Carousels', 'url' => ['/carousel/index']],
+        ['label' => 'Noticias', 'url' => ['/noticias/index']],
         ['label' => 'Users', 'url' => ['/user/admin']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
         Yii::$app->user->isGuest ?
                 ['label' => 'Sign in', 'url' => ['/user/security/login']] :
                 ['label' => 'Sign out (' . Yii::$app->user->identity->username . ')',

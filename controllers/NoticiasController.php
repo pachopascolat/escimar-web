@@ -3,17 +3,17 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\InicioCarousel;
-use app\models\InicioCarouselSearch;
+use app\models\Noticias;
+use app\models\NoticiasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
- * InicioCarouselController implements the CRUD actions for InicioCarousel model.
+ * NoticiasController implements the CRUD actions for Noticias model.
  */
-class InicioCarouselController extends Controller {
+class NoticiasController extends Controller {
 
     /**
      * {@inheritdoc}
@@ -30,13 +30,11 @@ class InicioCarouselController extends Controller {
     }
 
     /**
-     * Lists all InicioCarousel models.
+     * Lists all Noticias models.
      * @return mixed
      */
-    
-
     public function actionIndex() {
-        $searchModel = new InicioCarouselSearch();
+        $searchModel = new NoticiasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +44,7 @@ class InicioCarouselController extends Controller {
     }
 
     /**
-     * Displays a single InicioCarousel model.
+     * Displays a single Noticias model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,17 +56,17 @@ class InicioCarouselController extends Controller {
     }
 
     /**
-     * Creates a new InicioCarousel model.
+     * Creates a new Noticias model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate() {
-        $model = new InicioCarousel();
+        $model = new Noticias();
 
         if ($model->load(Yii::$app->request->post())) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload() && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id_inicio_carousel]);
+                return $this->redirect(['view', 'id' => $model->id_noticias]);
             }
         }
 
@@ -78,7 +76,7 @@ class InicioCarouselController extends Controller {
     }
 
     /**
-     * Updates an existing InicioCarousel model.
+     * Updates an existing Noticias model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -90,16 +88,17 @@ class InicioCarouselController extends Controller {
         if ($model->load(Yii::$app->request->post())) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload() && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id_inicio_carousel]);
+                return $this->redirect(['view', 'id' => $model->id_noticias]);
             }
         }
+
         return $this->render('update', [
                     'model' => $model,
         ]);
     }
 
     /**
-     * Deletes an existing InicioCarousel model.
+     * Deletes an existing Noticias model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -112,18 +111,48 @@ class InicioCarouselController extends Controller {
     }
 
     /**
-     * Finds the InicioCarousel model based on its primary key value.
+     * Finds the Noticias model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return InicioCarousel the loaded model
+     * @return Noticias the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id) {
-        if (($model = InicioCarousel::findOne($id)) !== null) {
+        if (($model = Noticias::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    function actionCambiarRanking() {
+        if ($data = Yii::$app->request->post()) {
+            $id_noticia = $data['id'];
+            $rank = $data['rank'];
+  
+            
+            
+            
+            $noticiaVieja = \app\models\NoticiasPrincipales::findOne(['ranking' => $rank]);            
+            $id_noticia_vieja = $noticiaVieja->noticia_id;
+            $noticiaVieja->noticia_id = $id_noticia;
+            
+            $noticiaNueva = \app\models\NoticiasPrincipales::findOne(['noticia_id' => $id_noticia]);
+            if($noticiaNueva != null){
+                $noticiaNueva->noticia_id = $id_noticia_vieja;
+                $noticiaNueva->save();
+            }
+            
+            $noticiaVieja->save();
+            
+            
+        }
+        return $this->redirect(['index']);
+    }
+    
+    function actionNewsView($id=1){
+        $noticia = Noticias::findOne($id);
+        return    $this->render('fe_view',['noticia'=>$noticia]);
     }
 
 }
