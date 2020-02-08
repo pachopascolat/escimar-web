@@ -2,11 +2,11 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- Footer -->
-	<section id="footer">
+<section id="footer" class="bg-biologia-dark">
 		<div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">
 				<div class="col-xs-12 col-sm-4 col-md-4 d-flex align-items-center">
-                                    <img class="w-100" src="<?= \yii\helpers\Url::base(true)?>/img/logo-balnco-transparente.png">
+                                    <img class="w-100" src="<?= \yii\helpers\Url::base(true)?>/img/logo-blanco-transparente-ok.png">
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>

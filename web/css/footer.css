@@ -11,7 +11,7 @@ section .section-title {
     text-transform: uppercase;
 }
 #footer {
-    background: #1855A1 !important;
+    /*background: #1855A1 !important;*/
     /*background: #1f9fa4 !important;*/
     /*background: #231f20 !important;*/
 

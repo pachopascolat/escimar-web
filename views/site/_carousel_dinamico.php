@@ -16,7 +16,7 @@
                 <div class="escimar-overlay"></div>
                 <img class="d-block w-100" alt=" <?= $carousel->titulo_carousel?>" src="<?=$carousel->image_path?>">
                 <div class="carousel-caption">
-                    <div class="">
+                    <div class="carousel-text-div">
                         <h1>
                             <?php echo $carousel->titulo_carousel?>
                         </h1>

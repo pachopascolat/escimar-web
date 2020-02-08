@@ -28,7 +28,7 @@
         <a class="nav-link" href="#">Biblioteca</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Calendario Acádemico</a>
+        <a class="nav-link" href="site/calendario">Calendario Acádemico</a>
     </li>
     <div class="nav-link mt-auto">
         <ul class="list-unstyled list-inline social text-center d-flex justify-content-start pl-2 pr-2 align-items-end">

@@ -152,4 +152,7 @@ class SiteController extends Controller {
     public function actionBiologia(){
         return $this->render('biologia');
     }
+    public function actionCalendario(){
+        return $this->render('calendario');
+    }
 }

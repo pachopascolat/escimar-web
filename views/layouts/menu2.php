@@ -1,17 +1,17 @@
 <?php
 
 use app\assets\FrontAsset;
-FrontAsset::register($this);
 
+FrontAsset::register($this);
 ?>
 
 <div class="row">
-    <div class="col-md-12 container-blue ">
+    <div class="col-md-12 bg-biologia-blue ">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <button class="navbar-toggler text-light " type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="navbar-toggler-icon"></span>
             </button> 
-            <a class="navbar-brand" href="<?= \yii\helpers\Url::base(true)?>"><img class="logo-escimar" src="<?= \yii\helpers\Url::base(true)?>/img/logo-balnco-transparente.png"></a>
+            <a class="navbar-brand" href="<?= \yii\helpers\Url::base(true) ?>"><img class="logo-escimar" src="<?= \yii\helpers\Url::base(true) ?>/img/logo-blanco-transparente-ok.png"></a>
             <div class="collapse navbar-collapse justify-content-between" id="bs-example-navbar-collapse-1">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
@@ -20,11 +20,18 @@ FrontAsset::register($this);
                     <li class="nav-item">
                         <a class="nav-link" href="#">Institucional</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Carreras</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Carreras
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="site/biologia">Licenciatura en Biología Marina</a>
+                            <a class="dropdown-item" href="site/produccion-pesquera">Tecnicatura en Producción Pesquera y Maricultura</a>
+                            
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Académica</a>
+                        <a class="nav-link" href="#">ingresantes</a>
                     </li>
 
                     <!--                    <li class="nav-item dropdown">
@@ -37,14 +44,14 @@ FrontAsset::register($this);
                                         </li>-->
                 </ul>
 
-                <ul class="navbar-nav">
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="text"> 
-                        <button class="btn btn-info my-2 my-sm-0" type="submit">
-                            Ir
-                        </button>
-                    </form>
-                </ul>
+                <!--                <ul class="navbar-nav">
+                                    <form class="form-inline">
+                                        <input class="form-control mr-sm-2" type="text"> 
+                                        <button class="btn btn-info my-2 my-sm-0" type="submit">
+                                            Ir
+                                        </button>
+                                    </form>
+                                </ul>-->
             </div>
         </nav>
     </div>

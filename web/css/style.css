@@ -1,5 +1,19 @@
+.calendar-page td{
+    padding: 0.8em;
+}
+.calendar-page th{
+    padding: 0.8em;
+}
+
 #biologia-banner{
     background: url('../img/biologia-fondo.jpg');
+    background-size: cover;
+    background-position: bottom;
+    
+}
+#calendario-banner{
+    height: 200px;
+    background: url('../img/calendario-3.jpg');
     background-size: cover;
     background-position: bottom;
     
@@ -37,12 +51,12 @@
     }*/
 
 .bg-title{
-    background-color: black;
-    opacity: 0.5;
+    background-color: rgb(0,0,0,0.4);
+    /*opacity: 0.5;*/
 }
 
 .inscripcion-requisitos i{
-    color: #3DA3B9;
+    color: #4fafe6;
 }
 
 .inscripcion-requisitos li{

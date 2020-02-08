@@ -14,7 +14,7 @@ FrontAsset::register($this);
         </div>
     </div>
     <div class="container">
-        <div class="bg-info mt-3 p-3">
+        <div class="bg-biologia-light mt-3 p-3">
             <h3 class="text-light"><i class="far fa-clipboard-list-check"></i> Requisitos </h3>
         </div>
         <div class="inscripcion-requisitos mt-3">
@@ -39,9 +39,9 @@ FrontAsset::register($this);
                 </li>
             </ul>
         </div>
-        <div class="bg-info d-flex p-3 mb-5 align-items-center">
+        <div class="bg-biologia-light d-flex p-3 mb-5 align-items-center">
             <div>
-<i class="far fa-file-certificate fa-2x text-light"></i>
+                <i class="far fa-file-certificate fa-2x text-light"></i>
             </div>
             <div class="w-100">
                 <h5 class="text-light p-3">
