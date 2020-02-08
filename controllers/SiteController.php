@@ -148,4 +148,8 @@ class SiteController extends Controller {
         return $this->render('preinscripcion');
     }
 
+    
+    public function actionBiologia(){
+        return $this->render('biologia');
+    }
 }

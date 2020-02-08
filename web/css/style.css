@@ -1,3 +1,54 @@
+#biologia-banner{
+    background: url('../img/biologia-fondo.jpg');
+    background-size: cover;
+    background-position: bottom;
+    
+}
+
+.bg-biologia-dark{
+    background-color: #323946;
+}
+
+.bg-biologia-blue{
+    background-color: #3270bd;
+}
+.bg-biologia-light{
+    background-color: #4fafe6;
+}
+
+.text-biologia-dark{
+    color: #323946;
+}
+.text-biologia-blue{
+    color: #3270bd;
+}
+.text-biologia-light{
+    color: #4fafe6;
+}
+
+#img-preinscripcion{
+    background: url('../img/inscripcion.jpg');
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+/*    .inscripcion-header{
+        background-color: #3DA3B9;
+    }*/
+
+.bg-title{
+    background-color: black;
+    opacity: 0.5;
+}
+
+.inscripcion-requisitos i{
+    color: #3DA3B9;
+}
+
+.inscripcion-requisitos li{
+    list-style-type: none;
+}
+
 .media{
     /*height: 150px;*/
 }

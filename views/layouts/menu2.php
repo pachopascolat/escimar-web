@@ -6,7 +6,7 @@ FrontAsset::register($this);
 ?>
 
 <div class="row">
-    <div class="col-md-12 container-blue">
+    <div class="col-md-12 container-blue ">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <button class="navbar-toggler text-light " type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="navbar-toggler-icon"></span>
