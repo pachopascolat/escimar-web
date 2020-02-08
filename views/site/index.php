@@ -1,18 +1,21 @@
-<?php 
+<?php
+
 use app\assets\FrontAsset;
 
-
-$this->params['frontend']=true;
+$this->params['frontend'] = true;
 FrontAsset::register($this);
 ?>
 
 
 <div class="row">
-    <div class="col-md-10 pl-0 pr-0">
-        <?php // require_once '_carrousel_estatico.php'; ?>
-        <?php require_once '_carrousel_dinamico.php'; ?>
+    <div class="col-lg-10 pl-0 pr-0">
+        <?= $this->render('_carousel_dinamico', ['carousels' => $carousels]); ?>
     </div>
-    <div class="col-md-2 side-menu p-0 d-none d-md-block container-black">
+    <div class="col-lg-2 side-menu p-0 d-none d-lg-block container-black">
+        <?= $this->render('/layouts/_side_menu'); ?>
+    </div>
+</div>
+<!--    <div class="col-md-2 side-menu p-0 d-none d-md-block container-black">
         <ul class="nav flex-column">
             <li class="nav-item active">
                 <a class="nav-link active" href="#">Investigación</a>
@@ -56,7 +59,7 @@ FrontAsset::register($this);
                 </ul>
             </div>
         </ul>
-    </div>
+    </div>-->
 </div>
 <?php require_once '_thumbnail.php'; ?>
 <?php require_once '_map.php'; ?>

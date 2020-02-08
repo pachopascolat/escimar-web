@@ -68,7 +68,7 @@ class SiteController extends Controller {
     }
 
     public function actionSayHello($message = "hola") {
-        return $this->render('say', ['message' => $message]);
+        return $this->render('say', ['mensaje' => $message]);
     }
 
     /**
@@ -78,7 +78,7 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $carousels = \app\models\InicioCarousel::find()->all();
-        $noticias = \app\models\NoticiasPrincipales::find()->orderBy('ranking')->all();
+        $noticias = \app\models\NoticiasPrincipales::find()->orderBy('ranking')->limit(4)->all();
         
         return $this->render('index',[
             'carousels'=>$carousels,
@@ -142,6 +142,10 @@ class SiteController extends Controller {
      */
     public function actionAbout() {
         return $this->render('about');
+    }
+    
+    public function actionPreinscripcion(){
+        return $this->render('preinscripcion');
     }
 
 }

@@ -17,7 +17,7 @@ NavBar::begin([
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'Carousels', 'url' => ['/carousel/index']],
+        ['label' => 'Carousels', 'url' => ['/inicio-carousel/index']],
         ['label' => 'Noticias', 'url' => ['/noticias/index']],
         ['label' => 'Users', 'url' => ['/user/admin']],
         Yii::$app->user->isGuest ?

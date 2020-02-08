@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Felicitaciones!</h1>
+        <h1>Felicitaciones Alumnos!</h1>
 
         <img src="">
         <?php 

@@ -25,6 +25,7 @@ class FrontAsset extends AssetBundle
         'css/thumbnail.css',
         'css/carousel.css',
         'css/footer.css',
+        'fontawesome/css/all.min.css',
         
     ];
     public $js = [

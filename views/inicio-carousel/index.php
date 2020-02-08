@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'parrafo_carousel:ntext',
             'boton_carousel',
             'url_boton_carousel:url',
+            'image_path',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
