@@ -79,11 +79,11 @@ class SiteController extends Controller {
     public function actionIndex() {
         $carousels = \app\models\InicioCarousel::find()->all();
         $noticias = \app\models\NoticiasPrincipales::find()->orderBy('ranking')->limit(4)->all();
-        
-        return $this->render('index',[
-            'carousels'=>$carousels,
-            'noticias' => $noticias,
-                ]);
+
+        return $this->render('index', [
+                    'carousels' => $carousels,
+                    'noticias' => $noticias,
+        ]);
     }
 
     /**
@@ -143,16 +143,58 @@ class SiteController extends Controller {
     public function actionAbout() {
         return $this->render('about');
     }
-    
-    public function actionPreinscripcion(){
+
+    public function actionPreinscripcion() {
         return $this->render('preinscripcion');
     }
 
-    
-    public function actionBiologia(){
+    public function actionBiologia() {
         return $this->render('biologia');
     }
-    public function actionCalendario(){
+
+    public function actionCalendario() {
         return $this->render('calendario');
     }
+
+    public function actionConstruccion() {
+        return $this->render('/layouts/construccion');
+    }
+
+    public function actionInstitucional() {
+        return $this->render('institucional');
+    }
+
+    public function actionBienestar() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionBiblioteca() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionAcademica() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionExtension() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionPosgrado() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionNivelacion() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionInvestigacion() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionAlumnos() {
+        return $this->render('/layouts/construccion');
+    }
+    public function actionNovedades() {
+        return $this->render('/layouts/construccion');
+    }
+
+    public function actionProduccionPesquera() {
+        return $this->render('produccionPesquera');
+    }
+    
+
 }

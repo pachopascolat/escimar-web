@@ -1,8 +1,8 @@
-<div class="container">  
+<div class="container pt-0">  
     <div class="novedades-title">
         <!--<hr class="hr-primary">-->
         <h1 class="m-0">Novedades</h1>
-        <hr class="hr-primary mt-0">
+        <hr class="bg-biologia-light mt-0">
     </div>
     <!--<p>Use it to your news site, feature a article.</p>-->
 
@@ -11,7 +11,7 @@
             <!-- artigo em destaque -->
             <div class="featured-article mt-3 mb-3">
                 <a href="#">
-                    <img class="" src="<?= $noticias[0]->noticia->image_path??'' ?>" alt="" class="thumb">
+                    <img class="" src="<?= yii\helpers\Url::base(true)."/".$noticias[0]->noticia->image_path??'' ?>" alt="" class="thumb">
                 </a>
                 <div class="block-title">
                     <h2><?= $noticias[0]->noticia->titulo_noticia ?></h2>
@@ -33,7 +33,7 @@
                     <div class="media">
                         <div class="row">
                             <a class="col-sm-4" href="#">
-                                <img class="media-object w-100" src="<?= $noticias[$i]->noticia->image_path?? '' ?>" alt="...">
+                                <img class="media-object w-100" src="<?= yii\helpers\Url::base(true)."/".$noticias[$i]->noticia->image_path?? '' ?>" alt="...">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><?= $noticias[$i]->noticia->titulo_noticia?? '' ?></h4>
@@ -49,6 +49,6 @@
             </div>
         </div>
     </div>
-    <hr class="hr-primary mt-0">
+    <hr class="bg-biologia-light mt-0">
 
 </div>

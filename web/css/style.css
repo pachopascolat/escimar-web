@@ -1,3 +1,38 @@
+/*@media screen and (max-width: 600px) {
+  .carousel-caption h1 {
+    font-size: 30px;
+  }
+}*/
+
+.navbar-escimar li a  {
+    /*margin-right: 5px;*/
+    /*font-size:25px;*/
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+
+ .navbar-escimar li:hover a {
+    font-size: 1.1rem;
+    /*margin-top:2px;*/
+}
+
+
+.dropdown-menu.bg-biologia-light a{
+    color: white;
+}
+.dropdown-menu.bg-biologia-light a:hover{
+    background-color: white;
+    color: #323946;
+}
+
+
+.social-icons i{
+    padding: 0.4em;
+    font-size: 2rem;
+}
+
 .calendar-page td{
     padding: 0.8em;
 }
@@ -9,6 +44,33 @@
     background: url('../img/biologia-fondo.jpg');
     background-size: cover;
     background-position: bottom;
+    
+}
+#institucional-banner{
+    background: url('../img/unco.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    
+}
+#pesquera-banner{
+    position: relative;
+    background: url('../img/pesca.jpg');
+    background-size: cover;
+    background-position: top;
+    
+}
+
+.alfrente{
+    z-index: 5;
+}
+
+#construccion-page{
+    background: url('../img/biologia-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5em 0;
+    /*height: 1080px;*/
     
 }
 #calendario-banner{
@@ -128,7 +190,7 @@
 .container-green{
     background-color: #1f9fa4
 }
-.side-menu li{
+.container-black li{
     /*background: #414956;*/
     background: #308496;
     /*    background: linear-gradient(to bottom, 
@@ -136,15 +198,20 @@
             #1f9fa4 100%
             );*/
 }
-.side-menu li.active{
+.container-black li.active{
     /*background: #3b424d;*/
     background: #205865;
 }
-.side-menu li :hover{
+.container-black li :hover{
     /*background: #3b424d;*/
     background: #205865;
 }
-.side-menu>ul>li>a{
+.container-black a:hover{
+    /*background: #3b424d;*/
+    background: #205865;
+    color: white;
+}
+.container-black>ul>li>a{
     /*border-bottom: solid 1px #3b424d;*/
     border-bottom: solid 1px #205865;
 }

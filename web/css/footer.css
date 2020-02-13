@@ -16,7 +16,7 @@ section .section-title {
     /*background: #231f20 !important;*/
 
 }
-#footer h5{
+#footer .line{
     padding-left: 10px;
     border-left: 3px solid #eeeeee;
     padding-bottom: 6px;
@@ -39,9 +39,20 @@ section .section-title {
     -moz-transition: .5s all ease;
     transition: .5s all ease;
 }
+#footer ul li a  {
+    /*margin-right: 5px;*/
+    /*font-size:25px;*/
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
 #footer ul.social li:hover a i {
     font-size:30px;
     margin-top:-10px;
+}
+#footer ul li:hover a {
+    font-size: 1.2rem;
+    /*margin-top:-10px;*/
 }
 #footer ul.social li a,
 #footer ul.quick-links li a{

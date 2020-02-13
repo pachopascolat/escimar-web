@@ -14,7 +14,7 @@
             ?>
             <div class="carousel-item <?= $j == 0? "active" : "" ?>">
                 <div class="escimar-overlay"></div>
-                <img class="d-block w-100" alt=" <?= $carousel->titulo_carousel?>" src="<?=$carousel->image_path?>">
+                <img class="d-block w-100" alt=" <?= $carousel->titulo_carousel?>" src="<?= yii\helpers\Url::base(true)."/".$carousel->image_path?>">
                 <div class="carousel-caption">
                     <div class="carousel-text-div">
                         <h1>
@@ -23,7 +23,7 @@
                         <p>
                             <?= $carousel->parrafo_carousel?>
                         </p>
-                        <a href="site/<?= $carousel->url_boton_carousel ?>" class="btn btn-lg btn-info"><?= $carousel->boton_carousel?></a>
+                        <a href="<?= yii\helpers\Url::base(true)."/site/".$carousel->url_boton_carousel ?>" class="btn btn-lg btn-info"><?= $carousel->boton_carousel?></a>
                     </div>
                 </div>
             </div>
