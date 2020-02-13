@@ -8,9 +8,9 @@ FrontAsset::register($this);
 
 
 <div class="inscripciones-div">
-    <div class="row justify-content-center align-items-center" id="img-preinscripcion">
-        <div class="bg-title p-3">
-            <h1 class="text-light">Inscripciones</h1>
+    <div class="row p-relative" id="img-preinscripcion">
+        <div class="   justify-content-center align-items-center d-flex w-100">
+            <h1 class="p-3 bg-title-blue text-light">Inscripciones</h1>
         </div>
     </div>
     <div class="container">

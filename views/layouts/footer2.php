@@ -72,10 +72,10 @@
                         <a class="" href="<?= yii\helpers\Url::to(['biblioteca']) ?>">Biblioteca</a>
                     </li>
                     <li class="nav-item">
-                        <a class="" href="https://pedco.uncoma.edu.ar/">PEDCO</a>
+                        <a target="_blank" class="" href="https://pedco.uncoma.edu.ar/">PEDCO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="" href="https://ibmp.uncoma.edu.ar/">WebMail</a>
+                        <a target="_blank" class="" href="https://ibmp.uncoma.edu.ar/">WebMail</a>
                     </li>
 
                 </ul>

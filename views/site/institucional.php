@@ -6,13 +6,18 @@ $this->params['frontend'] = true;
 FrontAsset::register($this);
 ?>
 <div class="institucional-page">
-    <div class="row justify-content-center align-items-center" id="institucional-banner">
+    <div class="row " id="institucional-banner">
 
-        <div class="p-3">
-            <h1 class="text-light bg-biologia-light p-3 text-center">
-                Institucional
-            </h1>
-        </div>
+
+            <div class="d-flex justify-content-center align-items-center w-100">
+                <div> 
+                    <h1 class=" bg-title-blue text-light  p-3 text-center">
+                        Institucional
+                    </h1>
+                </div>
+
+            </div>
+
     </div>
     <div class="container pt-5 pb-5">
         <div>

@@ -9,7 +9,7 @@ FrontAsset::register($this);
     <div class="row justify-content-center align-items-center" id="calendario-banner">
 
         <div class="p-3">
-            <h1 class="text-light bg-biologia-light p-3 text-center">
+            <h1 class="text-light bg-title-blue p-3 text-center">
                 <i class="far fa-calendar-minus-o"></i> 
                 Calendario Académico 2020
             </h1>

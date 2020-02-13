@@ -51,8 +51,14 @@
     background-size: cover;
     background-position: center;
     height: 200px;
+    position: relative;
     
 }
+
+.p-relative{
+    position: relative;
+}
+
 #pesquera-banner{
     position: relative;
     background: url('../img/pesca.jpg');
@@ -92,6 +98,10 @@
     background-color: #4fafe6;
 }
 
+.bg-biologia-verde{
+    background-color: #308496;
+}
+
 .text-biologia-dark{
     color: #323946;
 }
@@ -115,6 +125,17 @@
 .bg-title{
     background-color: rgb(0,0,0,0.4);
     /*opacity: 0.5;*/
+}
+.bg-title-dark{
+    background-color: rgb(255,255,255,0.4);
+    /*color: black !important;*/
+    /*opacity: 0.5;*/
+}
+.bg-title-celeste{
+    background-color: rgb(79,175,230,0.7);
+}
+.bg-title-blue{
+    background-color: rgb(50,112,189,0.7);
 }
 
 .inscripcion-requisitos i{

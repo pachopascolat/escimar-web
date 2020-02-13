@@ -63,8 +63,8 @@ if(Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == '
                         <!--<a class="dropdown-item" href="<?= yii\helpers\Url::to(['site/docentes']) ?>">Docentes</a>-->
                         <!--<a class="dropdown-item" href="<?= yii\helpers\Url::to(['site/recursos-humanos']) ?>">Recursos Humanos</a>-->
                         <a class="dropdown-item" href="<?= yii\helpers\Url::to(['site/biblioteca']) ?>">Biblioteca</a>
-                        <a class="dropdown-item" href="https://pedco.uncoma.edu.ar/">PEDCO</a>
-                        <a class="dropdown-item" href="https://ibmp.uncoma.edu.ar/">WebMail</a>
+                        <a target="_blank" class="dropdown-item" href="https://pedco.uncoma.edu.ar/">PEDCO</a>
+                        <a target="_blank" class="dropdown-item" href="https://ibmp.uncoma.edu.ar/">WebMail</a>
 
                     </div>
                 </li>

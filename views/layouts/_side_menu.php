@@ -1,6 +1,6 @@
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="<?= yii\helpers\Url::to(['academica'])?>">Académica</a>
+        <a  class="nav-link active" href="<?= yii\helpers\Url::to(['academica'])?>">Académica</a>
     </li>
     <li class="nav-item">
         <a class="nav-link active" href="<?= yii\helpers\Url::to(['investigacion'])?>">Investigación</a>
@@ -26,10 +26,10 @@
         <a class="nav-link" href="<?= yii\helpers\Url::to(['biblioteca'])?>">Biblioteca</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="https://pedco.uncoma.edu.ar/">PEDCO</a>
+        <a target="_blank" class="nav-link" href="https://pedco.uncoma.edu.ar/">PEDCO</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="https://ibmp.uncoma.edu.ar/">WebMail</a>
+        <a target="_blank" class="nav-link" href="https://ibmp.uncoma.edu.ar/">WebMail</a>
     </li>
     
     
