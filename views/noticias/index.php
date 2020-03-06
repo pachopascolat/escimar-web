@@ -56,6 +56,13 @@ $this->registerJs($js);
 //            'body_noticia:ntext',
             'fecha_noticia',
             'categoria_noticia',
+                    [
+                        'label' => 'facebook',
+                        'format'=> 'html',
+                        'value' => function(){
+                            return Html::a('publicar',['publicar-facebook'],['class'=>'btn btn-info']);
+                        }
+                    ],
             //'author_id',
             //'publicado',
             ['class' => 'yii\grid\ActionColumn'],
