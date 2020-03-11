@@ -59,8 +59,8 @@ $this->registerJs($js);
                     [
                         'label' => 'facebook',
                         'format'=> 'html',
-                        'value' => function(){
-                            return Html::a('publicar',['publicar-facebook'],['class'=>'btn btn-info']);
+                        'value' => function($model){
+                            return Html::a('publicar',['publicar-facebook','id'=>$model->id_noticia],['class'=>'btn btn-info']);
                         }
                     ],
             //'author_id',
