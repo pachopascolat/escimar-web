@@ -93,7 +93,7 @@ class NoticiasController extends Controller {
             'app_secret' => $appsecret
         ]);
         $linkData = [
-            'link' => \yii\helpers\Url::base(true).$model->image_path,
+            'link' => \yii\helpers\Url::base().$model->image_path,
             'message' => "$model->titulo_noticia \n $model->body_noticia",
         ];
         try {
