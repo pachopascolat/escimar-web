@@ -13,6 +13,7 @@ use yii\filters\AccessControl;
 use Facebook\Facebook;
 use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException;
+
 /**
  * NoticiasController implements the CRUD actions for Noticias model.
  */
@@ -43,11 +44,46 @@ class NoticiasController extends Controller {
         ];
     }
 
-    public function actionPublicarFacebook() {
+    public function actionFacebookApp() {
+
+        if ($data = \Yii::$app->request->post()) {
+            $appid = "195029971766811";
+            $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
+            $pageAccessToken = "EAACxYPQwDhsBAEh3bQa75eUcARY1XDY4qM9WkRz3DhAz0iJYquiD0pzOhZB7wZBQjXPOgYaa4rikf4rf9MrXneBDPvlDEuc3YdzDvvANLNtyZBJRBGnkG1LbJhMIpJI8mD8xM8kANJ7ZAZBhD3SoeiuFcqJiZAjhZBFpQBx4oiQH9jttOIWyMiOekyImAakHqf5MRpcWhcRGEO2ZAQIPsPrH";
+            $pageFeed = "/me/feed";
+
+            $pagTitulo = $data['post'];
+            $pagURL = $data['basic-url'];
+
+            $fb = new Facebook([
+                'app_id' => $appid,
+                'app_secret' => $appsecret
+            ]);
+            $linkData = [
+                'link' => $pagURL,
+                'message' => $pagTitulo
+            ];
+            try {
+                $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
+            } catch (FacebookResponseException $e) {
+                echo 'Graph returned an error: ' . $e->getMessage();
+                exit;
+            } catch (FacebookSDKException $e) {
+                echo 'Facebook SDK returned an error: ' . $e->getMessage();
+                exit;
+            }
+//            $graphNode = $response->getGraphNode();
+        }
+
+        return $this->render('facebookPublicar');
+    }
+
+    public function actionPublicarFacebook($id) {
+        $model = Noticias::findOne($id);
         $appid = "195029971766811";
         $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
-        $pageAccessToken = "EAACxYPQwDhsBAJI2BkxecIJ2rTZC2HjgFRFPMWZBarXEeIRUGqvt2jcGII4IZAdVQveGTR5nn3WBLAHGkAM9k7Hd7qioI7iUBLMdNAP1wZAThCLByoaWf9TjroZCkYzwFI7ZC20eGP3cSoUxLpvRuOEX95G2XvF3Cixlf2xmkwWM7JRLXYH5OGxurYs296tDQ52KObnlZAaQp8Mv80bCtYZC";
-                $pageFeed = "/me/feed";
+        $pageAccessToken = "EAACxYPQwDhsBAPKqvpCzFDZA1Wl58dZBsOdCHq6WzS6iZChxjwYx8XLDLA3XGPmib3y10QdF26sxtD0L1DkIzsUOdUbXPVkfCOx2nhZCfaAcbx7AI5KijZA7Ff4tJK1PZC6jnyc9pMjrSfsG2ipLO2jTlgj7HI1NTG9xS6hxtzKaikbOU07rdX8M43HByKxTKceBLgskCGZAaoCzMJhMIg5";
+        $pageFeed = "/me/feed";
 
         $pagTitulo = "Dale Boca !!!!!!";
         $pagURL = "https://texsim.com.ar";
@@ -57,8 +93,8 @@ class NoticiasController extends Controller {
             'app_secret' => $appsecret
         ]);
         $linkData = [
-            'link' => $pagURL,
-            'message' => $pagTitulo
+            'link' => \yii\helpers\Url::base(true).$model->image_path,
+            'message' => "$model->titulo_noticia \n $model->body_noticia",
         ];
         try {
             $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
@@ -70,6 +106,7 @@ class NoticiasController extends Controller {
             exit;
         }
         $graphNode = $response->getGraphNode();
+        return $this->redirect(['index']);
     }
 
     /**
