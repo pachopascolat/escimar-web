@@ -86,14 +86,14 @@ class NoticiasController extends Controller {
         $pageFeed = "/me/feed";
 
         $pagTitulo = "Dale Boca !!!!!!";
-        $pagURL = "https://texsim.com.ar";
+        $pagURL = \yii\helpers\Url::base(TRUE)."/$model->image_path";
 
         $fb = new Facebook([
             'app_id' => $appid,
             'app_secret' => $appsecret
         ]);
         $linkData = [
-            'link' => \yii\helpers\Url::base().$model->image_path,
+            'link' => $pagURL,
             'message' => "$model->titulo_noticia \n $model->body_noticia",
         ];
         try {
