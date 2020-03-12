@@ -86,7 +86,7 @@ class NoticiasController extends Controller {
         $pageFeed = "/me/feed";
 
         $pagTitulo = "Dale Boca !!!!!!";
-        $pagURL = \yii\helpers\Url::base(TRUE)."/$model->image_path";
+        $pagURL = \yii\helpers\Url::base(TRUE).\yii\helpers\Url::to(['news-view','id'=>$id]);
 
         $fb = new Facebook([
             'app_id' => $appid,
