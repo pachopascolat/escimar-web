@@ -49,7 +49,7 @@ class NoticiasController extends Controller {
         if ($data = \Yii::$app->request->post()) {
             $appid = "195029971766811";
             $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
-            $pageAccessToken = "EAACxYPQwDhsBAEh3bQa75eUcARY1XDY4qM9WkRz3DhAz0iJYquiD0pzOhZB7wZBQjXPOgYaa4rikf4rf9MrXneBDPvlDEuc3YdzDvvANLNtyZBJRBGnkG1LbJhMIpJI8mD8xM8kANJ7ZAZBhD3SoeiuFcqJiZAjhZBFpQBx4oiQH9jttOIWyMiOekyImAakHqf5MRpcWhcRGEO2ZAQIPsPrH";
+            $pageAccessToken = "EAACxYPQwDhsBAKsjYLglk0fCfdUbtJr8yZBTeTiXFHMcmt0PxOy943a9ZBx9gU6sbcdKyvqZCCCsLrGlNIyvd2v1UkcbVdLcZCGEWHZCJ2ZAZB6PGM19RFMwaasjsXBp7dUbScwNnasgp8Smlqdnd1ZAKVLH2vBa3OIiutFu1o4gyKRfABMcrxdnBomXMudP9b4ZD";
             $pageFeed = "/me/feed";
 
             $pagTitulo = $data['post'];
