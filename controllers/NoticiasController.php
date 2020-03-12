@@ -82,7 +82,7 @@ class NoticiasController extends Controller {
         $model = Noticias::findOne($id);
         $appid = "195029971766811";
         $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
-        $pageAccessToken = "EAACxYPQwDhsBAJoV7OufZCiFCPCmnqrn3XmZA6lHMFlRc8gTdlYt0iEEthM9TY5uX2BeKudbKCww8oevh6OZCY0rDq2nZA4cR5TYRCaZALgf0m1bUwna5uCCoSQkjsaahP1TPjypZAhw1NXwJkngdg1fVamTKbpEC4pdrZBvTfTi1pTD2cutSGzpVhG1Mlv6pyZBuh3yZCyUViI0ZCZB2ThWI8k";
+        $pageAccessToken = "EAACxYPQwDhsBAKsjYLglk0fCfdUbtJr8yZBTeTiXFHMcmt0PxOy943a9ZBx9gU6sbcdKyvqZCCCsLrGlNIyvd2v1UkcbVdLcZCGEWHZCJ2ZAZB6PGM19RFMwaasjsXBp7dUbScwNnasgp8Smlqdnd1ZAKVLH2vBa3OIiutFu1o4gyKRfABMcrxdnBomXMudP9b4ZD";
         $pageFeed = "/me/feed";
 
         $pagTitulo = "Dale Boca !!!!!!";
