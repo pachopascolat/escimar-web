@@ -171,7 +171,7 @@ class SiteController extends Controller {
         return $this->render('/layouts/construccion');
     }
     public function actionAcademica() {
-        return $this->render('  academica');
+        return $this->render('academica');
     }
     public function actionExtension() {
         return $this->render('/layouts/construccion');
