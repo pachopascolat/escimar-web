@@ -32,7 +32,7 @@ class NoticiasController extends Controller {
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+//                'only' => ['logout'],
                 'rules' => [
                     [
 //                        'actions' => ['logout'],
