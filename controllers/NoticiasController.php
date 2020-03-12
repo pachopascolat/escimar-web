@@ -87,7 +87,8 @@ class NoticiasController extends Controller {
 
         $pagTitulo = "Dale Boca !!!!!!";
         $pagURL = \yii\helpers\Url::home(true)."noticias/$id";
-
+        $imageUrl = \yii\helpers\Url::home(true)."$model->image_path";
+        
         $fb = new Facebook([
             'app_id' => $appid,
             'app_secret' => $appsecret
@@ -95,6 +96,7 @@ class NoticiasController extends Controller {
         $linkData = [
             'link' => $pagURL,
             'message' => "$model->titulo_noticia \n $model->body_noticia",
+            'picture' => $imageUrl,
         ];
         try {
             $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
