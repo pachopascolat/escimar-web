@@ -96,7 +96,7 @@ class NoticiasController extends Controller {
         $linkData = [
             'link' => $pagURL,
             'message' => "$model->titulo_noticia \n $model->body_noticia",
-//            'picture' => $imageUrl,
+            'picture' => $imageUrl,
         ];
         try {
             $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
