@@ -69,6 +69,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<id:\d+>' => '<controller>/news-view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 'admin' => 'inicio-carousel/index',
