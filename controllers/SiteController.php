@@ -177,7 +177,7 @@ class SiteController extends Controller {
         return $this->render('extension');
     }
     public function actionPosgrado() {
-        return $this->render('/layouts/construccion');
+        return $this->render('posgrado');
     }
     public function actionNivelacion() {
         return $this->render('/layouts/construccion');
