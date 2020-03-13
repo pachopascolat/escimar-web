@@ -9,6 +9,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\filters\AccessControl;
+use Facebook\Facebook;
+use Facebook\Exceptions\FacebookResponseException;
+use Facebook\Exceptions\FacebookSDKException;
 
 /**
  * NoticiasController implements the CRUD actions for Noticias model.
@@ -26,7 +30,83 @@ class NoticiasController extends Controller {
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout'],
+                'rules' => [
+                    [
+//                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
         ];
+    }
+
+    public function actionFacebookApp() {
+
+        if ($data = \Yii::$app->request->post()) {
+            $appid = "195029971766811";
+            $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
+            $pageAccessToken = "EAACxYPQwDhsBAEh3bQa75eUcARY1XDY4qM9WkRz3DhAz0iJYquiD0pzOhZB7wZBQjXPOgYaa4rikf4rf9MrXneBDPvlDEuc3YdzDvvANLNtyZBJRBGnkG1LbJhMIpJI8mD8xM8kANJ7ZAZBhD3SoeiuFcqJiZAjhZBFpQBx4oiQH9jttOIWyMiOekyImAakHqf5MRpcWhcRGEO2ZAQIPsPrH";
+            $pageFeed = "/me/feed";
+
+            $pagTitulo = $data['post'];
+            $pagURL = $data['basic-url'];
+
+            $fb = new Facebook([
+                'app_id' => $appid,
+                'app_secret' => $appsecret
+            ]);
+            $linkData = [
+                'link' => $pagURL,
+                'message' => $pagTitulo
+            ];
+            try {
+                $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
+            } catch (FacebookResponseException $e) {
+                echo 'Graph returned an error: ' . $e->getMessage();
+                exit;
+            } catch (FacebookSDKException $e) {
+                echo 'Facebook SDK returned an error: ' . $e->getMessage();
+                exit;
+            }
+//            $graphNode = $response->getGraphNode();
+        }
+
+        return $this->render('facebookPublicar');
+    }
+
+    public function actionPublicarFacebook($id) {
+        $model = Noticias::findOne($id);
+        $appid = "195029971766811";
+        $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
+        $pageAccessToken = "EAACxYPQwDhsBAJoV7OufZCiFCPCmnqrn3XmZA6lHMFlRc8gTdlYt0iEEthM9TY5uX2BeKudbKCww8oevh6OZCY0rDq2nZA4cR5TYRCaZALgf0m1bUwna5uCCoSQkjsaahP1TPjypZAhw1NXwJkngdg1fVamTKbpEC4pdrZBvTfTi1pTD2cutSGzpVhG1Mlv6pyZBuh3yZCyUViI0ZCZB2ThWI8k";
+        $pageFeed = "/me/feed";
+
+        $pagTitulo = "Dale Boca !!!!!!";
+        $pagURL = \yii\helpers\Url::base(TRUE)."/$model->image_path";
+
+        $fb = new Facebook([
+            'app_id' => $appid,
+            'app_secret' => $appsecret
+        ]);
+        $linkData = [
+            'link' => $pagURL,
+            'message' => "$model->titulo_noticia \n $model->body_noticia",
+        ];
+        try {
+            $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
+        } catch (FacebookResponseException $e) {
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+        } catch (FacebookSDKException $e) {
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+        $graphNode = $response->getGraphNode();
+        return $this->redirect(['index']);
     }
 
     /**
@@ -129,30 +209,28 @@ class NoticiasController extends Controller {
         if ($data = Yii::$app->request->post()) {
             $id_noticia = $data['id'];
             $rank = $data['rank'];
-  
-            
-            
-            
-            $noticiaVieja = \app\models\NoticiasPrincipales::findOne(['ranking' => $rank]);            
+
+
+
+
+            $noticiaVieja = \app\models\NoticiasPrincipales::findOne(['ranking' => $rank]);
             $id_noticia_vieja = $noticiaVieja->noticia_id;
             $noticiaVieja->noticia_id = $id_noticia;
-            
+
             $noticiaNueva = \app\models\NoticiasPrincipales::findOne(['noticia_id' => $id_noticia]);
-            if($noticiaNueva != null){
+            if ($noticiaNueva != null) {
                 $noticiaNueva->noticia_id = $id_noticia_vieja;
                 $noticiaNueva->save();
             }
-            
+
             $noticiaVieja->save();
-            
-            
         }
         return $this->redirect(['index']);
     }
-    
-    function actionNewsView($id=1){
+
+    function actionNewsView($id = 1) {
         $noticia = Noticias::findOne($id);
-        return    $this->render('fe_view',['noticia'=>$noticia]);
+        return $this->render('fe_view', ['noticia' => $noticia]);
     }
 
 }
