@@ -230,9 +230,6 @@ class NoticiasController extends Controller {
         return $this->redirect(['index']);
     }
 
-    function actionNewsView($id = 1) {
-        $noticia = Noticias::findOne($id);
-        return $this->render('fe_view', ['noticia' => $noticia]);
-    }
+    
 
 }
