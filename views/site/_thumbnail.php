@@ -10,7 +10,7 @@
         <div class="col-lg-6">
             <!-- artigo em destaque -->
             <div class="featured-article mt-3 mb-3">
-                <a href="#">
+                <a href="<?= yii\helpers\Url::to(['news-view','id'=>$noticias[0]->noticia_id])?>">
                     <img class="" src="<?= yii\helpers\Url::base(true)."/".$noticias[0]->noticia->image_path??'' ?>" alt="" class="thumb">
                 </a>
                 <div class="block-title">
@@ -19,9 +19,11 @@
                         <?php
                         echo $noticias[0]->noticia->getShortBody(250);
                         ?>
-                        ...<a href="<?= \yii\helpers\Url::base(true)."/noticias/news-view?id={$noticias[0]->noticia_id}" ?>">ver mas</a>
+                        ...<a href="<?= yii\helpers\Url::to(['news-view','id'=>$noticias[0]->noticia_id])?>">ver mas</a>
                     </p>
-                    <p class="by-author"><small>By Pacho</small></p>
+<!--                    <p class="by-author">
+                        <small>By Pacho</small>
+                    </p>-->
 
                 </div>
             </div>
@@ -32,13 +34,13 @@
                 <?php for ($i = 1; $i < count($noticias); $i++): ?>
                     <div class="media">
                         <div class="row">
-                            <a class="col-sm-4" href="#">
+                            <a class="col-sm-4" href="<?= yii\helpers\Url::to(['news-view','id'=>$noticias[$i]->noticia_id])?>">
                                 <img class="media-object w-100" src="<?= yii\helpers\Url::base(true)."/".$noticias[$i]->noticia->image_path?? '' ?>" alt="...">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><?= $noticias[$i]->noticia->titulo_noticia?? '' ?></h4>
                                 <p class="media-text">
-                                    <?= $noticias[$i]->noticia ? $noticias[$i]->noticia->getShortBody(150) : '' ?> ...<a href="<?= \yii\helpers\Url::home(true)."noticias/news-view?id={$noticias[$i]->noticia_id}" ?>">ver mas</a>              
+                                    <?= $noticias[$i]->noticia ? $noticias[$i]->noticia->getShortBody(150) : '' ?> ...<a href="<?= yii\helpers\Url::to(['news-view','id'=>$noticias[$i]->noticia_id])?>">ver mas</a>              
                                 </p>
                                
                             </div>

@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\EntryForm;
-
+use app\models\Noticias;
 class SiteController extends Controller {
 
     /**
@@ -196,5 +196,9 @@ class SiteController extends Controller {
         return $this->render('produccionPesquera');
     }
     
+    function actionNewsView($id = 1) {
+        $noticia = Noticias::findOne($id);
+        return $this->render('fe_view', ['noticia' => $noticia]);
+    }
 
 }
