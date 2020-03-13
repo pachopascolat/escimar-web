@@ -32,7 +32,7 @@ class NoticiasController extends Controller {
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+//                'only' => ['logout'],
                 'rules' => [
                     [
 //                        'actions' => ['logout'],
@@ -49,7 +49,7 @@ class NoticiasController extends Controller {
         if ($data = \Yii::$app->request->post()) {
             $appid = "195029971766811";
             $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
-            $pageAccessToken = "EAACxYPQwDhsBAEh3bQa75eUcARY1XDY4qM9WkRz3DhAz0iJYquiD0pzOhZB7wZBQjXPOgYaa4rikf4rf9MrXneBDPvlDEuc3YdzDvvANLNtyZBJRBGnkG1LbJhMIpJI8mD8xM8kANJ7ZAZBhD3SoeiuFcqJiZAjhZBFpQBx4oiQH9jttOIWyMiOekyImAakHqf5MRpcWhcRGEO2ZAQIPsPrH";
+            $pageAccessToken = "EAACxYPQwDhsBAKsjYLglk0fCfdUbtJr8yZBTeTiXFHMcmt0PxOy943a9ZBx9gU6sbcdKyvqZCCCsLrGlNIyvd2v1UkcbVdLcZCGEWHZCJ2ZAZB6PGM19RFMwaasjsXBp7dUbScwNnasgp8Smlqdnd1ZAKVLH2vBa3OIiutFu1o4gyKRfABMcrxdnBomXMudP9b4ZD";
             $pageFeed = "/me/feed";
 
             $pagTitulo = $data['post'];
@@ -82,12 +82,13 @@ class NoticiasController extends Controller {
         $model = Noticias::findOne($id);
         $appid = "195029971766811";
         $appsecret = "4caa1a10a7e5ce2dcb6ee3fa17ad9544";
-        $pageAccessToken = "EAACxYPQwDhsBAJoV7OufZCiFCPCmnqrn3XmZA6lHMFlRc8gTdlYt0iEEthM9TY5uX2BeKudbKCww8oevh6OZCY0rDq2nZA4cR5TYRCaZALgf0m1bUwna5uCCoSQkjsaahP1TPjypZAhw1NXwJkngdg1fVamTKbpEC4pdrZBvTfTi1pTD2cutSGzpVhG1Mlv6pyZBuh3yZCyUViI0ZCZB2ThWI8k";
+        $pageAccessToken = "EAACxYPQwDhsBAKsjYLglk0fCfdUbtJr8yZBTeTiXFHMcmt0PxOy943a9ZBx9gU6sbcdKyvqZCCCsLrGlNIyvd2v1UkcbVdLcZCGEWHZCJ2ZAZB6PGM19RFMwaasjsXBp7dUbScwNnasgp8Smlqdnd1ZAKVLH2vBa3OIiutFu1o4gyKRfABMcrxdnBomXMudP9b4ZD";
         $pageFeed = "/me/feed";
 
         $pagTitulo = "Dale Boca !!!!!!";
-        $pagURL = \yii\helpers\Url::base(TRUE)."/$model->image_path";
-
+        $pagURL = \yii\helpers\Url::home(true)."noticias/$id";
+        $imageUrl = \yii\helpers\Url::home(true)."$model->image_path";
+        
         $fb = new Facebook([
             'app_id' => $appid,
             'app_secret' => $appsecret
@@ -95,6 +96,7 @@ class NoticiasController extends Controller {
         $linkData = [
             'link' => $pagURL,
             'message' => "$model->titulo_noticia \n $model->body_noticia",
+            'picture' => $imageUrl,
         ];
         try {
             $response = $fb->post($pageFeed, $linkData, $pageAccessToken);
