@@ -165,16 +165,16 @@ class SiteController extends Controller {
     }
 
     public function actionBienestar() {
-        return $this->render('/layouts/construccion');
+        return $this->render('/bienestar');
     }
     public function actionBiblioteca() {
-        return $this->render('/layouts/construccion');
+        return $this->render('biblioteca');
     }
     public function actionAcademica() {
-        return $this->render('  academica');
+        return $this->render('academica');
     }
     public function actionExtension() {
-        return $this->render('/layouts/construccion');
+        return $this->render('extension');
     }
     public function actionPosgrado() {
         return $this->render('posgrado');
