@@ -165,7 +165,7 @@ class SiteController extends Controller {
     }
 
     public function actionBienestar() {
-        return $this->render('/bienestar');
+        return $this->render('bienestar');
     }
     public function actionBiblioteca() {
         return $this->render('biblioteca');
