@@ -95,8 +95,8 @@ FrontAsset::register($this);
                     con otras unidades académicas de la UNco:
                 </p>
                 <ul>
-                    <li>Licenciatura en Ciencias Políticas (conjuntamente con el CURZA) </li>
-                    <li>Tecnicatura Universitaria en Desarrollo Web (conjuntamente con el
+                    <li><i class="far fa-check"></i>Licenciatura en Ciencias Políticas (conjuntamente con el CURZA) </li>
+                    <li><i class="far fa-check"></i>Tecnicatura Universitaria en Desarrollo Web (conjuntamente con el
                         CURZA).</li>
                 </ul>
             </div>
@@ -160,10 +160,10 @@ FrontAsset::register($this);
                     por:
                 </p>
                 <ul>
-                    <li>6 representantes del Claustro Docentes que se renueva cada 4 años</li>
-                    <li>3 representantes del Claustro Estudiantes renovados anualmente</li>
-                    <li>2 representantes del Claustro Nodocentes, renovados cada dos años</li>
-                    <li>1 representante del Claustro Graduados, renovado cada dos años</li>
+                    <li><i class="far fa-check"></i>6 representantes del Claustro Docentes que se renueva cada 4 años</li>
+                    <li><i class="far fa-check"></i>3 representantes del Claustro Estudiantes renovados anualmente</li>
+                    <li><i class="far fa-check"></i>2 representantes del Claustro Nodocentes, renovados cada dos años</li>
+                    <li><i class="far fa-check"></i>1 representante del Claustro Graduados, renovado cada dos años</li>
                 </ul>
                 <p>
                     El Consejo Directivo funciona a través de sesiones, que tienen lugar con un
@@ -174,22 +174,22 @@ FrontAsset::register($this);
                     Entre las funciones del Consejo Directivo se incluyen:
                 </label>
                 <ul>
-                    <li>Velar por la aplicación del Estatuto universitario dentro del ámbito del
+                    <li><i class="far fa-check"></i>Velar por la aplicación del Estatuto universitario dentro del ámbito del
                         Centro Regional. </li>
-                    <li>Dictar los reglamentos necesarios para su régimen interno. </li>
-                    <li>Apercibir o suspender a los profesores por falta en el cumplimiento de
+                    <li><i class="far fa-check"></i>Dictar los reglamentos necesarios para su régimen interno. </li>
+                    <li><i class="far fa-check"></i>Apercibir o suspender a los profesores por falta en el cumplimiento de
                         sus deberes. </li>
-                    <li>Proyectar los planes de estudio y reglamentar la docencia libre. </li>
-                    <li>Determinar las épocas, el número, orden y formas de la prueba de
+                    <li><i class="far fa-check"></i>Proyectar los planes de estudio y reglamentar la docencia libre. </li>
+                    <li><i class="far fa-check"></i>Determinar las épocas, el número, orden y formas de la prueba de
                         promoción. </li>
-                    <li>Reglamentar la expedición de los certificados en virtud de los cuales se
+                    <li><i class="far fa-check"></i>Reglamentar la expedición de los certificados en virtud de los cuales se
                         otorgan los diplomas universitarios. </li>
-                    <li>Determinar el número de secretarios y reglamentar sus funciones. </li>
-                    <li>Designar a los secretarios, bibliotecario, contador y tesorero, y separarlos
+                    <li><i class="far fa-check"></i>Determinar el número de secretarios y reglamentar sus funciones. </li>
+                    <li><i class="far fa-check"></i>Designar a los secretarios, bibliotecario, contador y tesorero, y separarlos
                         por el voto de las dos terceras partes de sus miembros. </li>
-                    <li>Ejercer, en última instancia, jurisdicción disciplinaria dentro del ámbito
+                    <li><i class="far fa-check"></i>Ejercer, en última instancia, jurisdicción disciplinaria dentro del ámbito
                         del Centro Regionales. </li>
-                    <li>Considerar el informe anual presentado por el Decano, sobre la labor
+                    <li><i class="far fa-check"></i>Considerar el informe anual presentado por el Decano, sobre la labor
                         realizada, el estado de la enseñanza, las necesidades de la institución, la
                         asistencia de los profesores y la rendición de exámenes. </li>
                 </ul>

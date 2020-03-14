@@ -5,7 +5,7 @@ use app\assets\FrontAsset;
 $this->params['frontend'] = true;
 FrontAsset::register($this);
 ?>
-<div class="institucional-page">
+<div class="biblioteca-page">
     <div class="row " id="institucional-banner">
 
         <div class="d-flex justify-content-center align-items-center w-100">
@@ -96,9 +96,9 @@ FrontAsset::register($this);
                         <br>
                         <!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
                         <ul>
-                            <li>Garantizar el acceso a la información en ciencias marinas y pesquerías.</li>
-                            <li>Preservar, conservar y difundir nuestro patrimonio bibliográfico.</li>
-                            <li>Capacitar a los bibliotecarios y al personal en la aplicación de las nuevas
+                            <li><i class="far fa-check"></i>Garantizar el acceso a la información en ciencias marinas y pesquerías.</li>
+                            <li><i class="far fa-check"></i>Preservar, conservar y difundir nuestro patrimonio bibliográfico.</li>
+                            <li><i class="far fa-check"></i>Capacitar a los bibliotecarios y al personal en la aplicación de las nuevas
                                 tecnologías de la comunicación e información.</li>
 
                         </ul>
@@ -120,72 +120,61 @@ FrontAsset::register($this);
                     <br>
                 <!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
                     <ul>
-                        <li>Gestión de Información y Documentación Científica.</li>
-                        <li>Préstamo de libros a domicilio.</li>
-                        <li>Servicio de Referencia.</li>
-                        <li>Salas de Lectura.</li>
-                        <li>Digitalización de Bibliografías Especializadas.</li>
-                        <li>Acceso a Catálogo On-line.</li>
-                        <li>Confección de Bibliografías.</li>
-                        
+                        <li><i class="far fa-check"></i>Gestión de Información y Documentación Científica.</li>
+                        <li><i class="far fa-check"></i>Préstamo de libros a domicilio.</li>
+                        <li><i class="far fa-check"></i>Servicio de Referencia.</li>
+                        <li><i class="far fa-check"></i>Salas de Lectura.</li>
+                        <li><i class="far fa-check"></i>Digitalización de Bibliografías Especializadas.</li>
+                        <li><i class="far fa-check"></i>Acceso a Catálogo On-line.</li>
+                        <li><i class="far fa-check"></i>Confección de Bibliografías.</li>
+
 
                     </ul>
-                    <p>
 
-                    </p>
                     <br>
 
                 </div>
                 <hr>
-                <div>
-                <div class="bg-biologia-blue p-2 mb-3 d-flex align-items-center">
-                    <h4 class="text-light mb-0">Horario:</h4>
-                </div>
-                <div>
-                    <br>
-                <!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
 
-                    <p>
-                        Lunes a Viernes 08.30hs a 14.30hs
-                    </p>
-                    <br>
-                </div>
-                <hr>
                 <div>
-                <div class="bg-biologia-blue p-2 mb-3 d-flex align-items-center">
-                    <h4 class="text-light mb-0">Horario:</h4>
-                </div>
-                <div>
-                    <br>
-                <!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
+                    <div class="bg-biologia-blue p-2 mb-3 d-flex align-items-center">
+                        <h4 class="text-light mb-0">Horario:</h4>
+                    </div>
+                    <div class="pt-4 pb-4">
 
-                    <p>
-                        Lunes a Viernes 08.30hs a 14.30hs
-                    </p>
-                    <br>
-                </div>
-                <hr>
-                <div>
-                <div class="bg-biologia-blue p-2 mb-3 d-flex align-items-center">
-                    <h4 class="text-light mb-0">Contacto:</h4>
-                </div>
-                <div>
-                    <br>
-                <!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
+<!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
 
-                    <p>
-                        biblioteca.escimar@ibmp.uncoma.edu.ar <br>
-                        02934-422752 interno 106
-                    </p>
-                    <br>
-                </div>
+                        <p>
+                            <i class="fa fa-calendar"></i> Lunes a Viernes 08.30hs a 14.30hs
+                        </p>
 
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="bg-biologia-blue p-2 mb-3 d-flex align-items-center">
+                            <h4 class="text-light mb-0">Contacto:</h4>
+                        </div>
+                        <div class="pt-4 pb-4">
+
+<!--<i class="fad fa-chevron-double-right mr-1 text-biologia-blue fa-2x"></i>-->
+
+                            <div><i class="fa fa-envelope"></i>
+                                biblioteca.escimar@ibmp.uncoma.edu.ar</div>
+                            <div><i class="fa fa-phone"></i>
+                                02934-422752 interno 106
+                            </div>
+
+                        </div>
+                        <hr>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 
-
-
+</div>
 
 
 

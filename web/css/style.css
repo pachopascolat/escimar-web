@@ -4,6 +4,17 @@
   }
 }*/
 
+.fa-check{
+    padding-right: 1em;
+    color: #4fafe6;
+}
+
+
+
+ul {
+    list-style-type: none;
+}
+
 .navbar-escimar li a  {
     /*margin-right: 5px;*/
     /*font-size:25px;*/
