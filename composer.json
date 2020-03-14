@@ -24,7 +24,8 @@
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-krajee-base": "@dev",
         "yiisoft/yii2-bootstrap4": "^1.0@dev",
-        "facebook/php-sdk-v4": "^5.0"
+        "facebook/php-sdk-v4": "^5.0",
+        "noam148/yii2-image-manager": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

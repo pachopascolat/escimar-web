@@ -145,11 +145,11 @@ class NoticiasController extends Controller {
     public function actionCreate() {
         $model = new Noticias();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            if ($model->upload() && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id_noticias]);
-            }
+        if ($model->load(Yii::$app->request->post())&& $model->save()) {
+//            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+//            if ($model->upload() ) {
+                return $this->redirect(['index']);
+//            }
         }
 
         return $this->render('create', [
@@ -167,11 +167,11 @@ class NoticiasController extends Controller {
     public function actionUpdate($id) {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            if ($model->upload() && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id_noticias]);
-            }
+        if ($model->load(Yii::$app->request->post())&& $model->save()) {
+//            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+//            if ($model->upload() ) {
+                return $this->redirect(['index']);
+//            }
         }
 
         return $this->render('update', [

@@ -32,7 +32,7 @@ class Noticias extends UploadForm {
             [['titulo_noticia', 'body_noticia'], 'required'],
             [['body_noticia', 'image_path'], 'string'],
             [['fecha_noticia'], 'safe'],
-            [['categoria_noticia', 'author_id', 'publicado'], 'integer'],
+            [['categoria_noticia', 'author_id', 'publicado','imagen_id'], 'integer'],
             [['titulo_noticia'], 'string', 'max' => 128],
         ];
     }
@@ -48,6 +48,7 @@ class Noticias extends UploadForm {
             'fecha_noticia' => 'Fecha Noticia',
             'categoria_noticia' => 'Categoria Noticia',
             'author_id' => 'Author ID',
+            'imagen_id' => 'Imagen Principal',
             'publicado' => 'Publicado',
         ];
     }
@@ -64,6 +65,9 @@ class Noticias extends UploadForm {
 
     public function getNoticiasPrincipales() {
         return $this->hasOne(NoticiasPrincipales::className(), ['noticia_id' => 'id_noticias']);
+    }
+    public function getImagen() {
+        return $this->hasOne(\noam148\imagemanager\models\ImageManager::className(), ['imagen_id' => 'id']);
     }
 
     public function getShortBody($length=20){
@@ -83,4 +87,12 @@ class Noticias extends UploadForm {
         return $string;
     }
 
+    
+    function getImagePath(){
+        $image = \Yii::$app->imagemanager->getImagePath($this->imagen_id);
+        if(!$image){
+            return $this->image_path;
+        }
+        return $image;
+    }
 }

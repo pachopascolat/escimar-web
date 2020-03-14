@@ -11,7 +11,7 @@
             <!-- artigo em destaque -->
             <div class="featured-article mt-3 mb-3">
                 <a href="<?= yii\helpers\Url::to(['news-view','id'=>$noticias[0]->noticia_id])?>">
-                    <img class="" src="<?= yii\helpers\Url::base(true)."/".$noticias[0]->noticia->image_path??'' ?>" alt="" class="thumb">
+                    <img class="" src="<?= yii\helpers\Url::base(true)."/".$noticias[0]->noticia->getImagePath()??'' ?>" alt="" class="thumb">
                 </a>
                 <div class="block-title">
                     <h2><?= $noticias[0]->noticia->titulo_noticia ?></h2>
@@ -35,7 +35,7 @@
                     <div class="media">
                         <div class="row">
                             <a class="col-sm-4" href="<?= yii\helpers\Url::to(['news-view','id'=>$noticias[$i]->noticia_id])?>">
-                                <img class="media-object w-100" src="<?= yii\helpers\Url::base(true)."/".$noticias[$i]->noticia->image_path?? '' ?>" alt="...">
+                                <img class="media-object w-100" src="<?= yii\helpers\Url::base(true)."/".$noticias[$i]->noticia->getImagePath()?? '' ?>" alt="...">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><?= $noticias[$i]->noticia->titulo_noticia?? '' ?></h4>

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-02-2020 a las 19:19:03
+-- Tiempo de generación: 14-03-2020 a las 17:08:57
 -- Versión del servidor: 5.7.28-0ubuntu0.16.04.2
--- Versión de PHP: 7.2.16-1+ubuntu16.04.1+deb.sury.org+1
+-- Versión de PHP: 7.2.28-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -102,6 +102,28 @@ CREATE TABLE `auth_rule` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `ImageManager`
+--
+
+CREATE TABLE `ImageManager` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `fileName` varchar(128) NOT NULL,
+  `fileHash` varchar(32) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ImageManager`
+--
+
+INSERT INTO `ImageManager` (`id`, `fileName`, `fileHash`, `created`, `modified`) VALUES
+(6, 'bati-cani.jpeg', 'm9Y4M1dFoGEtTmIs9dRCbYWBfxxYhKbB', '2020-03-14 16:45:30', '2020-03-14 16:45:30'),
+(7, '20140519-230206.jpg', '7mTUjb60fIAwA-PGI-Hi8cQwUMRL3MV1', '2020-03-14 16:59:18', '2020-03-14 16:59:18');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `inicio_carousel`
 --
 
@@ -152,7 +174,9 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 ('m150614_103145_update_social_account_table', 1569364015),
 ('m150623_212711_fix_username_notnull', 1569364015),
 ('m151218_234654_add_timezone_to_profile', 1569364015),
+('m160622_085710_create_ImageManager_table', 1584213699),
 ('m160929_103127_add_last_login_at_to_user_table', 1569364095),
+('m170223_113221_addBlameableBehavior', 1584212179),
 ('m170907_052038_rbac_add_index_on_auth_assignment_user_id', 1569365091),
 ('m180523_151638_rbac_updates_indexes_without_prefix', 1569365091);
 
@@ -166,24 +190,28 @@ CREATE TABLE `noticias` (
   `id_noticias` int(11) NOT NULL,
   `titulo_noticia` varchar(128) NOT NULL,
   `body_noticia` text NOT NULL,
-  `fecha_noticia` datetime DEFAULT CURRENT_TIMESTAMP,
+  `fecha_noticia` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `categoria_noticia` int(11) DEFAULT NULL,
   `author_id` int(11) DEFAULT NULL,
   `publicado` tinyint(4) DEFAULT '0',
-  `image_path` varchar(255) DEFAULT NULL
+  `image_path` varchar(255) DEFAULT NULL,
+  `imagen_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `noticias`
 --
 
-INSERT INTO `noticias` (`id_noticias`, `titulo_noticia`, `body_noticia`, `fecha_noticia`, `categoria_noticia`, `author_id`, `publicado`, `image_path`) VALUES
-(1, 'La Noticia Lorem ipsum', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 20:47:41', NULL, NULL, 1, 'img/noticias/ea544b6b5b03340f70e93dba2cc5e871.jpg'),
-(2, 'Noticia Secundaria', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 20:52:49', NULL, NULL, 1, 'img/noticias/b12a0d7ab8fea0fc913ce85731590c34.jpg'),
-(3, 'Noticia Tercera', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 20:53:21', NULL, NULL, 1, 'img/noticias/9167d3270e86bdf98260ba556aa1035a.jpg'),
-(4, 'Ultima Noticia', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 20:53:46', NULL, NULL, 1, 'img/noticias/2e458906c1901eb8a9930eb8ba5e1681.jpg'),
-(5, 'Quinta Noticia', 'dlksflkasjflsadkgvñadskglkdasjglkadsg\r\nadskjglkdsajglkdsajglkdasjgds\r\nagadsgñldasñlkgdsa\r\ngdsagdsa\r\ngadsgdsagdsagdsagdsag\r\ndasgdsag', '2019-10-03 21:36:02', NULL, NULL, 1, 'img/noticias/767d95facc7af3a3bb16d1326bcd4422.jpg'),
-(8, 'Nos reunimos para lanzar la Pagina Web', 'jhasfjhfkjhdkjfhdskkkkkkkkkkkkkkkkkkkkkkkk', '2020-02-05 10:42:33', NULL, NULL, 1, 'img/noticias/d632ae0c9c5d63853441bbb7880e98bb.jpg');
+INSERT INTO `noticias` (`id_noticias`, `titulo_noticia`, `body_noticia`, `fecha_noticia`, `categoria_noticia`, `author_id`, `publicado`, `image_path`, `imagen_id`) VALUES
+(1, 'La Noticia Lorem ipsum', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 23:47:41', NULL, NULL, 1, 'img/noticias/ea544b6b5b03340f70e93dba2cc5e871.jpg', NULL),
+(2, 'Noticia Secundaria', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 23:52:49', NULL, NULL, 1, 'img/noticias/b12a0d7ab8fea0fc913ce85731590c34.jpg', NULL),
+(3, 'Noticia Tercera', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 23:53:21', NULL, NULL, 1, 'img/noticias/9167d3270e86bdf98260ba556aa1035a.jpg', NULL),
+(4, 'Ultima Noticia', '¿Qué es Lorem Ipsum?\r\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.\r\n\r\n¿Por qué lo usamos?\r\nEs un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).\r\n\r\n', '2019-10-03 23:53:46', NULL, NULL, 1, 'img/noticias/2e458906c1901eb8a9930eb8ba5e1681.jpg', NULL),
+(5, 'Quinta Noticia', 'dlksflkasjflsadkgvñadskglkdasjglkadsg\r\nadskjglkdsajglkdsajglkdasjgds\r\nagadsgñldasñlkgdsa\r\ngdsagdsa\r\ngadsgdsagdsagdsagdsag\r\ndasgdsag', '2019-10-04 00:36:02', NULL, NULL, 1, 'img/noticias/767d95facc7af3a3bb16d1326bcd4422.jpg', NULL),
+(8, 'Nos reunimos para lanzar la Pagina Web', 'jhasfjhfkjhdkjfhdskkkkkkkkkkkkkkkkkkkkkkkk', '2020-02-05 13:42:33', NULL, NULL, 1, 'img/noticias/d632ae0c9c5d63853441bbb7880e98bb.jpg', NULL),
+(9, 'noticia prueba', '', '2020-02-19 16:15:55', NULL, NULL, 0, NULL, NULL),
+(10, 'EL Bati y Cani', 'El bati y el Cani son lo mas grande que hay', '2020-03-14 19:52:49', NULL, NULL, 1, NULL, 6),
+(11, 'Jose y Dante son muy lindos', 'fvghnjk', '2020-03-14 20:00:05', NULL, NULL, 1, NULL, 7);
 
 -- --------------------------------------------------------
 
@@ -202,8 +230,8 @@ CREATE TABLE `noticias_principales` (
 --
 
 INSERT INTO `noticias_principales` (`id_noticias_principales`, `noticia_id`, `ranking`) VALUES
-(1, 8, 1),
-(2, 1, 2),
+(1, 11, 1),
+(2, 10, 2),
 (3, 4, 3),
 (4, 3, 4);
 
@@ -298,7 +326,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password_hash`, `auth_key`, `confirmed_at`, `unconfirmed_email`, `blocked_at`, `registration_ip`, `created_at`, `updated_at`, `flags`, `last_login_at`) VALUES
-(1, 'pacho', 'patriciopascolat@gmail.com', '$2y$12$NbYeAApSZoGrjmonAcqVOefHYise5OVMWhw5s1GopNcWAag0OcNiG', '2p4muVf6O9qYWzXjcS5Kx2nWf-o6EgkE', NULL, NULL, NULL, '127.0.0.1', 1569364648, 1569364648, 0, 1569867878),
+(1, 'pacho', 'patriciopascolat@gmail.com', '$2y$12$NbYeAApSZoGrjmonAcqVOefHYise5OVMWhw5s1GopNcWAag0OcNiG', '2p4muVf6O9qYWzXjcS5Kx2nWf-o6EgkE', NULL, NULL, NULL, '127.0.0.1', 1569364648, 1569364648, 0, 1584211762),
 (2, 'giani', 'giani@gmail.com', '$2y$12$GPpJViBZRp.1hNxOhE0D5.xavm4t.ZCTyimA8ramTsaGNAB7vWOza', 'NzXQj7O4CzZdpeH36-MDnT6793JPGxiz', 1569364876, NULL, NULL, '127.0.0.1', 1569364876, 1569366474, 0, 1569366732);
 
 --
@@ -334,6 +362,12 @@ ALTER TABLE `auth_rule`
   ADD PRIMARY KEY (`name`);
 
 --
+-- Indices de la tabla `ImageManager`
+--
+ALTER TABLE `ImageManager`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `inicio_carousel`
 --
 ALTER TABLE `inicio_carousel`
@@ -349,7 +383,8 @@ ALTER TABLE `migration`
 -- Indices de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  ADD PRIMARY KEY (`id_noticias`);
+  ADD PRIMARY KEY (`id_noticias`),
+  ADD KEY `imagen_id` (`imagen_id`);
 
 --
 -- Indices de la tabla `noticias_principales`
@@ -392,6 +427,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `ImageManager`
+--
+ALTER TABLE `ImageManager`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT de la tabla `inicio_carousel`
 --
 ALTER TABLE `inicio_carousel`
@@ -400,7 +440,7 @@ ALTER TABLE `inicio_carousel`
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id_noticias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_noticias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `noticias_principales`
 --
@@ -438,6 +478,12 @@ ALTER TABLE `auth_item`
 ALTER TABLE `auth_item_child`
   ADD CONSTRAINT `auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `noticias`
+--
+ALTER TABLE `noticias`
+  ADD CONSTRAINT `noticias_ibfk_1` FOREIGN KEY (`imagen_id`) REFERENCES `ImageManager` (`id`);
 
 --
 -- Filtros para la tabla `noticias_principales`
